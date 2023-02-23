@@ -32,22 +32,19 @@
                                 <i class="bi bi-pencil"></i> Edit
                             </a>
 
-                            <a class="btn btn-outline-danger btn-sm" data-bs-toggle="collapse" href="#collapseExample{{$datum->id}}" role="button" aria-expanded="false" aria-controls="collapseExample{{$datum->id}}">
-                                <i class="bi bi-trash"></i> remove
-                            </a>
-
-                            <div class="collapse mt-2" id="collapseExample{{$datum->id}}">
+                            <a class="toggle-button btn btn-outline-danger btn-sm" href="#" data-target="paragraph-{{$datum->id}}"><i class="bi bi-trash"></i> remove</a>
+                            <div class="collapse mt-2" style="width: 65%;" id="paragraph-{{$datum->id}}">
                                 <div class="card card-body">
                                     Remove this item?
                                     <form action="/company/{{$datum->id}}/delete" method="POST">
                                         @csrf {{-- Prevents cross platform injection --}}
                                         @method('DELETE') {{-- method POST DELETE --}}
-                                        <button class="btn btn-danger">
+                                        <button class="btn btn-danger btn-sm">
                                             <i class="fa-solid fa-trash"></i>CONFIRM DELETE
                                         </button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> 
                         </td>
                     </tr>
                 @endforeach
@@ -64,6 +61,34 @@
         
         <div class="d-flex justify-content-center" id="pagination"></div>
        
+        {{-- custom toggle button --}}
+        <script type="text/javascript">
+            // Get references to all toggle buttons on the page
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+          
+            // Loop through all toggle buttons and add a click event listener to each
+            toggleButtons.forEach(function(button) {
+              button.addEventListener('click', function(event) {
+                event.preventDefault();
+          
+                // Get the ID of the target paragraph from the data-target attribute of the button
+                const targetId = button.getAttribute('data-target');
+          
+                // Get a reference to the target paragraph using its ID
+                const targetParagraph = document.getElementById(targetId);
+          
+                // Toggle the display style of the target paragraph
+                if (targetParagraph.style.display === 'none') {
+                  targetParagraph.style.display = 'block';
+                //   button.textContent = 'Hide ' + targetId;
+                } else {
+                  targetParagraph.style.display = 'none';
+                //   button.textContent = 'Show ' + targetId;
+                }
+              });
+            });
+          </script>
+
         <!-- include jQuery and Bootstrap JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>

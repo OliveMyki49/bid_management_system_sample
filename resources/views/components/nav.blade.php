@@ -12,11 +12,21 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="/addBid">Add Bid</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+              Side Data
+            </a>
+          </li>
         </ul>
       </div>
     </div>
     <img class="header-image" src=""/>
   </nav>
+  
+  {{-- side bar --}}
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <x-sideBar></x-sideBar>
+  </div>
 
 <style>
   /*Sample Design For Header*/
