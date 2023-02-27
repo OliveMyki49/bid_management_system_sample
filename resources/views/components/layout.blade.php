@@ -12,7 +12,11 @@
   </head>
   <body>
     <x-nav></x-nav>{{-- navigation bar --}}
+
+    
     <div class="container container-lg mt-2 p-3" style="height: 100%">
+        @include('partials.carousel'){{-- carousel sample --}}
+
         <x-flash-message></x-flash-message>{{-- show message after query --}}
         {{ $slot }}
     </div>
