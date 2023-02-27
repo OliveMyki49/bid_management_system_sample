@@ -17,6 +17,10 @@
               Side Data
             </a>
           </li>
+          
+          <li class="nav-item">
+            <a class="nav-link text-white text-bold" href="/addTo">Travel Order</a>
+          </li>
         </ul>
       </div>
     </div>

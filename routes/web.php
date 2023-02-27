@@ -3,6 +3,7 @@
 use App\Models\BidMng;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BidController;
+use App\Http\Controllers\ToController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,12 @@ Route::put('/company/{item}/edit/perform', [BidController::class, 'update']);
 
 //perform destroy
 Route::delete('/company/{item}/delete', [BidController::class, 'destroy']);
+
+//show to sample temp / create
+Route::get('/addTo', [ToController::class, 'create']);
+//store new to
+Route::post('/addTo/create', [ToController::class, 'store']);
+
 
 //tester page
 Route::get('/test', function(){
